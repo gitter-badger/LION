@@ -1,5 +1,6 @@
 from django.contrib import admin
 from accounts.models import User
+from django.contrib.auth.admin import UserAdmin
 
 
 # Register your models here.
@@ -14,21 +15,18 @@ def unmake_is_staff(modeladmin, request, queryset):
 
 unmake_is_staff.short_description = (u"スタッフ権限をはく奪する")
 
-class UserAdmin(admin.ModelAdmin):
+class UserCustomedAdmin(UserAdmin):
     list_display=(
         "username", "last_name", "first_name", "is_staff"
     )
 
-    fieldsets = [
-        ("ログイン情報", {"fields": ["username"]}),
-        ("基本情報", {'fields': ["last_name", "first_name", "last_name_kana", "first_name_kana", "faculty", "grade"]}),
-        ("連絡先", {"fields": ["email", "telephone"]}),
-        ("権限情報（不用意にいじらないこと！）", {"fields": ["is_staff", "is_active"]})
-    ]
+    fieldsets = UserAdmin.fieldsets + (
+        ("追加情報", {'fields': ('telephone', 'faculty', 'grade')}),
+    )
 
     list_filter=[
         "is_staff"
     ]
 
     actions = [make_is_staff, unmake_is_staff]
-admin.site.register(User, UserAdmin)
+admin.site.register(User, UserCustomedAdmin)
