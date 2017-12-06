@@ -17,9 +17,12 @@ unmake_is_staff.short_description = (u"スタッフ権限をはく奪する")
 
 class UserCustomedAdmin(UserAdmin):
     list_display=(
-        "username", "last_name", "first_name", "is_staff"
+        "username", "last_name", "first_name", "last_name_kana", "first_name_kana", "is_staff"
     )
 
+    search_fields = [
+        "username", "last_name", "first_name", "last_name_kana", "first_name_kana", "email"
+    ]
     fieldsets = UserAdmin.fieldsets + (
         ("追加情報", {'fields': ('telephone', 'faculty', 'grade')}),
     )

@@ -39,13 +39,13 @@ class User(AbstractUser):
     last_name_kana = models.CharField(
         validators=[kana_valid],
         max_length=100,
-        verbose_name='申請者「姓」（かな）'
+        verbose_name='姓（かな）'
     )
 
     first_name_kana = models.CharField(
         validators=[kana_valid],
         max_length=100,
-        verbose_name='申請者「名」（かな）'
+        verbose_name='名（かな）'
     )    
 
     telephone = models.CharField(
