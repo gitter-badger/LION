@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     'activation.apps.ActivationConfig',
     'accounts.apps.AccountsConfig',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    "somu.apps.SomuConfig"
 ]
 
 MIDDLEWARE = [
