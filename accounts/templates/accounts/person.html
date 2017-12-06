@@ -13,14 +13,14 @@
 
 <table class="table table-striped table-bordered">
     <tbody>
-        <tr><td style="width:200px;">申請者「姓」</td><td>{{ object.last_name }}</td></tr>
-        <tr><td>申請者「名」</td><td>{{ object.first_name }}</td></tr>
-        <tr><td>申請者「姓」（かな）</td><td>{{ object.last_name_kana }}</td></tr>
-        <tr><td>申請者「名」（かな）</td><td>{{ object.first_name_kana }}</td></tr>
-        <tr><td>所属</td><td>{{ object.faculty }}</td></tr>
-        <tr><td>回生</td><td>{{ object.grade }}</td></tr>
-        <tr><td>Eメールアドレス</td><td>{{ object.email }}</td></tr>
-        <tr><td>電話番号</td><td>{{ object.telephone }}</td></tr>    
+        <tr><td style="width:200px;">姓</td><td>{{ user.last_name }}</td></tr>
+        <tr><td>名</td><td>{{ user.first_name }}</td></tr>
+        <tr><td>姓（かな）</td><td>{{ user.last_name_kana }}</td></tr>
+        <tr><td>名（かな）</td><td>{{ user.first_name_kana }}</td></tr>
+        <tr><td>所属</td><td>{{ user.faculty }}</td></tr>
+        <tr><td>回生</td><td>{{ user.grade }}</td></tr>
+        <tr><td>Eメールアドレス</td><td>{{ user.email }}</td></tr>
+        <tr><td>電話番号</td><td>{{ user.telephone }}</td></tr>    
     </tbody>
 </table>
 
@@ -28,7 +28,7 @@
 <p>ログイン情報は以下のとおりです。</p>
 <table class="table table-striped table-bordered">
     <tbody>
-        <tr><td style="width:200px;">学生番号</td><td>{{ object.username }}</td></tr>
+        <tr><td style="width:200px;">学生番号</td><td>{{ user.username }}</td></tr>
         <tr><td>パスワード</td><td>セキュリティ保護の観点から表示しません</td></tr> 
     </tbody>
 </table>
