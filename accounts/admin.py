@@ -24,7 +24,7 @@ class UserCustomedAdmin(UserAdmin):
         "username", "last_name", "first_name", "last_name_kana", "first_name_kana", "email"
     ]
     fieldsets = UserAdmin.fieldsets + (
-        ("追加情報", {'fields': ('telephone', 'faculty', 'grade')}),
+        ("追加情報", {'fields': ('last_name_kana', 'first_name_kana', 'telephone', 'faculty', 'grade')}),
     )
 
     list_filter=[
