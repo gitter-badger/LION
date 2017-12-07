@@ -1,0 +1,40 @@
+{% extends "home/base.html" %}
+
+{% block extrahead %}
+<style>
+    table {
+        margin-top: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr><td style="width:200px;">姓</td><td>{{ user.last_name }}</td></tr>
+        <tr><td>名</td><td>{{ user.first_name }}</td></tr>
+        <tr><td>姓（かな）</td><td>{{ user.last_name_kana }}</td></tr>
+        <tr><td>名（かな）</td><td>{{ user.first_name_kana }}</td></tr>
+        <tr><td>所属</td><td>{{ user.faculty }}</td></tr>
+        <tr><td>回生</td><td>{{ user.grade }}</td></tr>
+        <tr><td>Eメールアドレス</td><td>{{ user.email }}</td></tr>
+        <tr><td>電話番号</td><td>{{ user.telephone }}</td></tr>    
+    </tbody>
+</table>
+
+
+<p>ログイン情報は以下のとおりです。</p>
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr><td style="width:200px;">学生番号</td><td>{{ user.username }}</td></tr>
+        <tr><td>パスワード</td><td>セキュリティ保護の観点から表示しません</td></tr> 
+    </tbody>
+</table>
+
+<p>変更がある場合は11月祭事務局まで直接お問い合わせください</p>
+
+    <a href="{% url 'accounts:index'%}"><button type="button" class="btn btn-default">戻る</button></a>
+
+    {% endblock content %}

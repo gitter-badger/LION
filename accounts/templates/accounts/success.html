@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+      <br><br><br>
+      <h1>ユーザー登録が終わりました！</h1>
+      <p>右上に「ログインしていません」と書かれている際は下のボタンからログインしてください</p>
+      <p><a class="btn btn-primary btn-lg" href="{% url "accounts:login" %}" role="button">ログイン</a>
+    </p>
+    </div>
+  </div>
+{% endblock content %}
