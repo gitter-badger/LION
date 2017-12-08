@@ -4,7 +4,7 @@
 {% block content %}
     <br><br><br>
     <div class="alert alert-info" role="alert">あなたの情報を入力してください</div>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form|bootstrap_horizontal }}
