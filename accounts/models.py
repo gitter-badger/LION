@@ -1,8 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
+import os, random, string
 
 # Create your models here.
+
+def get_image_path(instance, filename):
+    
+    return os.path.join(
+        'idcard', 
+        str(instance.username),
+        filename
+    )
 
 class User(AbstractUser):
 
@@ -112,14 +121,11 @@ class User(AbstractUser):
         choices=GRADE,
         verbose_name='回生')
 
-    hankaku_valid = RegexValidator(regex=(r'^[a-zA-Z0-9]+$'), message=("半角英字16文字以内でお願いします！"))
-
-    rawpassword = models.CharField(
-        max_length=16,
-        verbose_name="パスワード",
-        help_text="半角英字16文字以内でお願いします",
-        validators=[hankaku_valid]
+    idcard = models.ImageField(
+        upload_to=get_image_path,
+        verbose_name="学生証画像"
     )
+
 
 class Project(models.Model):
     activator = models.ForeignKey(
@@ -149,15 +155,10 @@ class Project(models.Model):
         verbose_name = "団体名（かな）"
     )
 
-    ACTIVATION_NO = RegexValidator(
-        regex=(r'^x[A-Z]-[0-9]{3}$'), 
-        message=("半角英字16文字以内でお願いします！")
-    )
-
     activation_no = models.CharField(
         max_length = 6,
         verbose_name = "申請書コード",
-        validators = [ACTIVATION_NO]
+        help_text="半角英字で入力してください。例：「xM-001」"
     )
 
     mogi = '模擬'
