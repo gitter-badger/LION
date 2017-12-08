@@ -9,5 +9,5 @@ class UserForm(UserCreationForm):
         fields = (
             "last_name", "first_name", 
             "last_name_kana", "first_name_kana",
-            "username", "faculty", "grade", "email", "telephone"
+            "username", "faculty", "grade", "email", "telephone", "idcard"
         )

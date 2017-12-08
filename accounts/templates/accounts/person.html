@@ -21,6 +21,7 @@
         <tr><td>回生</td><td>{{ user.grade }}</td></tr>
         <tr><td>Eメールアドレス</td><td>{{ user.email }}</td></tr>
         <tr><td>電話番号</td><td>{{ user.telephone }}</td></tr>    
+        <tr><td>学生証画像</td><td><a href="{{ user.idcard.url }}"><img src="{{ user.idcard.url }}" width="193" height="130"></a></td></tr>
     </tbody>
 </table>
 

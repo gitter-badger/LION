@@ -19,6 +19,11 @@ class SignUpView(CreateView):
     template_name = "accounts/create.html"
 
     def get_success_url(self):
+        profile_form = UserForm(data=self.request.POST)
+        if profile_form.is_valid():
+            if 'idcard' in self.request.FILES:
+                self.object.idcard = self.request.FILES['idcard']
+        self.object.save()
         return reverse('accounts:success')
 
     def get_form_kwargs(self, *args, **kwargs):
